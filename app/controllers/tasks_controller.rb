@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_project, :task_params #only: [:new]
+  before_action :set_project #only: [:new]
 
   def new
     @task = Task.new(:project => @project)
@@ -16,8 +16,8 @@ class TasksController < ApplicationController
 
   private
     def task_params
-      # params.require(:task).permit(:todo)
-      params[:task]
+      params.require(:task).permit(:todo)
+      # params[:task]
     end
 
     def set_project
